@@ -23,8 +23,8 @@ class App extends Component {
       return song.artist.toLowerCase().includes(this.state.searchFields.toLowerCase()) || 
               song.title.toLowerCase().includes(this.state.searchFields.toLowerCase()) ||
               song.album.toLowerCase().includes(this.state.searchFields.toLowerCase()) ||
-              song.genre.toLowerCase().includes(this.state.searchFields.toLowerCase()) 
-      ;
+              song.genre.toLowerCase().includes(this.state.searchFields.toLowerCase()) ||
+              song.releaseDate.toLowerCase().includes(this.state.searchFields.toLowerCase()) 
       
     });
 
