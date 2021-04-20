@@ -1,44 +1,19 @@
 import React from 'react';
 
-class Search extends React.Component{
-
-  constructor(props){
-    super(props);
-
-    this.state = {
-        query: '',
-        results: {},
-        loading: false,
-        messasge: ''
-    }
-  }
-
-  handleOnInputChange = (event) => {
-      const query = event.target.value;
-      this.setState({query: query, loading: true, message:''});
-  };
-
-  render() {
-    // using object destruction which means pulling query variable state to store in this const
-    const {query} = this.state;
-
+const Search = (props) =>{
     return (
       <div>
-        <label htmlFor='search-input'>
+        <form>
         <input
-          type='text'
-          name='query'
-          value={query}
-          id='search-input'
-          placeholder='Begin your search here...'
-          onChange={this.handleOnInputChange}
-
+          type='search'
+          placeholder= {props.placeholder}
+          onChange = {props.handleChange}
           />
-          </label>
+          </form>
       </div>
     )
   }
-}
+
 
 
 

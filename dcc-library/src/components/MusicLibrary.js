@@ -1,14 +1,16 @@
 import React from 'react';
 
-function MusicLibrary(props) {
+function MusicLibrary({music}) {
     return (
+        music.map(song => 
         <div className="container">
-            <h1>Title: {props.title}</h1>
-            <p> Artist: {props.artist}</p>
-            <p>Genre: {props.genre}</p>
-            <p> Release Date: {props.releaseDate}</p>
+            <h1>Title: {song.title}</h1>
+            <p> Artist: {song.artist}</p>
+            <p> Album: {song.album}</p>
+            <p>Genre: {song.genre}</p>
+            <p> Release Date: {song.releaseDate}</p>
         </div>
-    );
+    ));
 }
 
 

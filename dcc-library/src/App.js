@@ -8,7 +8,8 @@ import Search from './components/Search';
 class App extends Component {
   
   state = {
-    music: []
+    music: [],
+    searchFields: ''
   }
 
   componentDidMount(){
@@ -18,12 +19,22 @@ class App extends Component {
 }
 
   render(){
+    const filteredSongs = this.state.music.filter(song => {
+      return song.artist.toLowerCase().includes(this.state.searchFields.toLowerCase()) || 
+              song.title.toLowerCase().includes(this.state.searchFields.toLowerCase()) ||
+              song.album.toLowerCase().includes(this.state.searchFields.toLowerCase()) ||
+              song.genre.toLowerCase().includes(this.state.searchFields.toLowerCase()) 
+      ;
+      
+    });
+
+
     return (
       <div>
-        <Search/>
-        {this.state.music.map(song =>{
-          return <MusicLibrary key = {song.id} title = {song.title} artist = {song.artist} genre = {song.genre} releaseDate = {song.releaseDate} />
-        })}  
+        <Search placeholder = 'Begin your search here...' handleChange={(event) => this.setState({searchFields:event.target.value})}/>
+
+        <MusicLibrary music ={filteredSongs} />
+  
       </div>
     );
   }
