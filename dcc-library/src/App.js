@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, {Component} from 'react';
 import MusicLibrary from './components/MusicLibrary';
-import Header from './components/Header';
+import Search from './components/Search';
+
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
   render(){
     return (
       <div>
-        <Header/>
+        <Search/>
         {this.state.music.map(song =>{
           return <MusicLibrary key = {song.id} title = {song.title} artist = {song.artist} genre = {song.genre} releaseDate = {song.releaseDate} />
         })}  
@@ -30,5 +31,3 @@ class App extends Component {
 
 
 export default App;
-
-//array of 20 songs
